@@ -1,0 +1,32 @@
+import java.util.HashMap;
+
+public class Coll {
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+//Creates HashMap Coll
+	HashMap <String,String> Coll= new HashMap<>();
+
+	//Adds family members to HashMap Coll
+		try {
+			Coll.put("Kellie",5);
+		} catch (java.lang.Exception exception) {
+			exception.printStackTrace();
+		}
+		Coll.put("Talon", "Six feet two inches");
+	Coll.put("Dad", "Six feet one inch");
+	
+	//Assigns value of Kellie to a variable and prints her height to screen
+	String Person = Coll.get("Kellie");
+	System.out.printf(""+"Kellie's height is: "+Person+".");
+	
+	//Prints current HashMap Coll
+	System.out.printf("%n"+Coll);
+	
+	//Removes "Dad" from HashMap Coll
+	Coll.remove("Dad");
+	
+	//Prints HashMap Coll with "Dad" removed
+	System.out.printf("%n"+Coll);
+	}
+}
