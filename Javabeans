@@ -1,0 +1,46 @@
+import java.util.Date;
+import java.io.Serializable;
+
+public class Transaction implements Serializable{
+	private Date TranDate;
+	private String Employee;
+	private String Vendor;
+	private float Amount;
+	
+	public Transaction(){
+		
+	}
+	public Date getTranDate(){
+
+		return this.TranDate;
+	}
+	public void setTranDate(Date TranDate){
+
+		this.TranDate = TranDate;
+	}
+	
+	public String getEmployee(){
+
+		return this.Employee;
+	}
+	public void setEmployee(String Employee){
+
+		this.Employee = Employee;
+	}
+	public String getVendor(){
+		return this.Vendor;
+	}
+	public void setVendor(String Vendor){
+
+		this.Vendor = Vendor;
+	}
+	public float getAmount(){
+
+		return this.Amount;
+	}
+	public void setAmount(float Amount){
+
+		this.Amount = Amount;
+	}
+	
+}
