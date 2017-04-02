@@ -64,6 +64,7 @@ public class HibernateRunner {
         session.save(leeUser);
         session.save(kobeUser);
         session.save(michaelJordan);
+
         transaction.commit();
         /*
          * prove that the User instances were added to the database and that
@@ -133,14 +134,6 @@ public class HibernateRunner {
         showAllUsers();
     }
 
-    private void addAddress(){
-        Session session = theHibernateUtility.getCurrentSession();
-        Transaction transaction = session.beginTransaction();
-        
-
-
-    }
-
     private void addSharedPhoneNumber() {
         Session session = theHibernateUtility.getCurrentSession();
         Transaction transaction = session.beginTransaction();
@@ -157,7 +150,7 @@ public class HibernateRunner {
          * create a PhoneNumber instance
          */
         PhoneNumber sharedPhoneNumber = new PhoneNumber();
-        sharedPhoneNumber.setPhone("(546)222-9898");
+        sharedPhoneNumber.setPhone("(208)222-9898");
 
        /*
         * add the shared phone number to the joshuaUser
