@@ -1,51 +1,21 @@
-import org.hibernate.HibernateException;
-import org.hibernate.Metamodel;
-import org.hibernate.query.Query;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
+package com.company;
 
-import javax.persistence.metamodel.EntityType;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
-import java.util.Map;
-
-/**
- * Created by Talon on 2/22/2017.
- */
 public class Main {
-    private static final SessionFactory ourSessionFactory;
-
-    static {
-        try {
-            Configuration configuration = new Configuration();
-            configuration.configure();
-
-            ourSessionFactory = configuration.buildSessionFactory();
-        } catch (Throwable ex) {
-            throw new ExceptionInInitializerError(ex);
+    public static void main(String[] args){
+        ExecutorService executor = Executors.newFixedThreadPool(1);
+        System.out.println("Michael Jordan has the ball and the clock is winding down. The visiting crowd is counting down the clock while the home team's crowd is chanting 'Defense, Defense, Defense'");
+        // For the i part it is going to start on therad 1 and end on one less than the i #
+        for (int i = 22; i > -1; i--){
+            Runnable Game= new GameEnd(" " + i);
+            executor.execute(Game);
         }
-    }
+        executor.shutdown();
+        while (!executor.isTerminated()) {
 
-    public static Session getSession() throws HibernateException {
-        return ourSessionFactory.openSession();
-    }
-
-    public static void main(final String[] args) throws Exception {
-        final Session session = getSession();
-        try {
-            System.out.println("querying all the managed entities...");
-            final Metamodel metamodel = session.getSessionFactory().getMetamodel();
-            for (EntityType<?> entityType : metamodel.getEntities()) {
-                final String entityName = entityType.getName();
-                final Query query = session.createQuery("from " + entityName);
-                System.out.println("executing: " + query.getQueryString());
-                for (Object o : query.list()) {
-                    System.out.println("  " + o);
-                }
-            }
-        } finally {
-            session.close();
         }
+        System.out.println("The game has ended, Michael drained a three as time expired. Have a safe trip home!");
     }
 }
-
