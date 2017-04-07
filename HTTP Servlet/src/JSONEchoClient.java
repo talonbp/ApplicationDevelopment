@@ -32,9 +32,9 @@ public class JSONEchoClient {
 
                 Scanner systemInScanner = new Scanner(System.in);
 
-                System.out.printf("Enter the message to send to the server.\n");
+                System.out.printf("Enter the number you wish to multiply by 5.\n");
 
-                String messageForServer = systemInScanner.nextLine();
+               Integer messageForServer = systemInScanner.nextInt();
 
 
 
@@ -50,7 +50,7 @@ public class JSONEchoClient {
 
                 HashMap<String, Object> request = new HashMap<>();
 
-                request.put("command", "Speak");
+                request.put("command", "Hope for answers");
 
                 request.put("message", messageForServer);
 

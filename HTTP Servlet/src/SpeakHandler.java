@@ -9,9 +9,11 @@ public class SpeakHandler implements Handler {
 
     @Override
 
-    public void handleIt(HashMap<String, Object> dataMap) {
+    public void handleIt(HashMap<String, Integer> dataMap) {
 
         try{
+
+            Integer Old;
 
             JSONOutputStream outToClient = (JSONOutputStream)dataMap.remove("toClient");
 
